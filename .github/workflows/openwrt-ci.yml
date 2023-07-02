@@ -115,7 +115,6 @@ jobs:
           CONFIG_PACKAGE_libstdcpp=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-argon-config=y
-          CONFIG_PACKAGE_luci-app-attendedsysupgrade=y
           CONFIG_PACKAGE_luci-app-design-config=y
           CONFIG_PACKAGE_luci-app-easymesh=y
           CONFIG_PACKAGE_luci-app-frpc=y
@@ -210,5 +209,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/firmware/*
           tag: ${{ github.ref }}
-          body: “由工作流自动编译，更新内容请见Commit或上游库”
+          body: “由工作流自动编译，更新内容请见 Commit 或上游库”
           file_glob: true

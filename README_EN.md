@@ -1,88 +1,89 @@
-Welcome to Lean's git source of OpenWrt and packages
-=
+# OpenWRT(LEDE) For H3C Magic NX30Pro 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Zachery-Liu/Lede-for-H3C-NX30pro/merge-upstream.yml?style=for-the-badge&label=Merge)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Zachery-Liu/Lede-for-H3C-NX30pro/openwrt-ci.yml?label=Build&style=for-the-badge)
+![GitHub all releases](https://img.shields.io/github/downloads/Zachery-Liu/Lede-for-H3C-NX30pro/total?style=for-the-badge)
 
-How to build your Openwrt firmware.
--
-Note:
---
-1. DO **NOT** USE **root** USER FOR COMPILING!!!
 
-2. Users within China should prepare proxy before building.
 
-3. Web admin panel default IP is 192.168.1.1 and default password is "password".
 
-Let's start!
----
-1. First, install Ubuntu 64bit (Ubuntu 20.04 LTS x86 is recommended).
+This is a library to compile firmware for H3C Magic NX30Pro.  
+It is automatically compared with the upstream [LEDE](https://github.com/coolsnowwolf/lede) library at 19:30 every day, and then the new content is automatically pulled and compiled for release via Github CI.
 
-2. Run `sudo apt-get update` in the terminal, and then run
-    `
-    sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
-    `
+## Download
+See [CI](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/actions/workflows/openwrt-ci.yml) or [Release](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/releases) page.
 
-3. Run `git clone https://github.com/coolsnowwolf/lede` to clone the source code, and then `cd lede` to enter the directory
+## Configuration Information
+Device: H3C Magic NX30 Pro  
 
-4. ```bash
-   ./scripts/feeds update -a
-   ./scripts/feeds install -a
-   make menuconfig
-   ```
+List of compiled plug-ins within the firmware:
+| Package Name | Description |
+|:-----:|:-----:|
+|luci-app-adbyby-plus|Adblock Master Plus +|
+|luci-app-argon-config|Argon theme settings|
+|luci-app-design-config|Design theme settings|
+|luci-app-easymesh|Simple Mesh|
+|luci-app-frpc|Frp client|
+|luci-app-ntpc|NTP time synchronization server|
+|luci-app-openclash|OpenClash plug-in|
+|luci-app-pushbot|All-purpose push|
+|luci-app-ramfree|memory release|
+|luci-app-statistics|statistics tools|
+|luci-app-unblockmusic|unblock Netflix (removed from subsequent firmware)|
+|luci-app-wifischedule|Wifi scheduled tasks|
+|luci-app-wireguard|Wireguard|
+|luci-app-zerotier|Zerotier penetration tool|
 
-5. Run `make -j8 download V=s` to download libraries and dependencies (user in China should use global proxy when possible)
+There are also plugins for KMS Server, Turbo ACC, Internet Time Control, Dynamic DNS, WiFi Wakeup, UPNP, etc. that are compiled into the firmware by default.  
 
-6. Run `make -j1 V=s` (integer following -j is the thread count, single-thread is recommended for the first build) to start building your firmware.
+Unlock Netflix doesn't work very well, so it's not built in. You can use `opkg` to install it again if you need it.
 
-This source code is promised to be compiled successfully.
+## Other usage
+This library can be used to compile firmware for other routers.  
 
-You can use this source code freely, but please link this GitHub repository when redistributing. Thank you for your cooperation!
-=
+1. follow the first three steps of the [compile command](https://github.com/coolsnowwolf/lede#%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4) to complete the firmware-related custom configuration;
 
-Rebuild:
+
+2. Use the command
+
 ```bash
-cd lede
-git pull
-./scripts/feeds update -a && ./scripts/feeds install -a
 make defconfig
-make -j8 download
-make -j$(($(nproc) + 1)) V=s
+. /scripts/diffconfig.sh > diff.config
+```
+  
+
+Locate the ``diff.config`` file in the folder and copy the entire contents;
+
+3. Fork this repository;
+
+4. Modify the contents between `.github/workflows/openwrt-ci.yml` file line 74 `cat >> .config <<EOF` and line 152 `EOF` to the contents of `diff.config` file in step 2, **Note the indentation**.
+
+```yml
+      - name: Generate configuration file
+        run: |
+          rm -f . /.config*
+          touch . /.config
+
+          #
+          # Paste your compiled configuration between cat >> .config <<EOF to EOF, taking care of the indentation
+          # For example.
+
+          cat >> .config <<EOF
+          
+          Here the contents of the diff.config file are modified
+
+          EOF
+
+          #EOF
+          # ===============================================================
+          # 
+
+          sed -i 's/^[ \t]*//g' . /.config
+          make defconfig
 ```
 
-If reconfiguration is need:
-```bash
-rm -rf ./tmp && rm -rf .config
-make menuconfig
-make -j$(($(nproc) + 1)) V=s
-```
+5. Commit the changes and Action will automatically start compiling, after which the corresponding firmware can be found in the Release.
 
-Build result will be produced to `bin/targets` directory.
-
-Special tips:
-------
-1. This source code doesn't contain any backdoors or close source applications that can monitor/capture your HTTPS traffic, SSL is the final castle of cyber security. Safety is what a firmware should achieve.
-
-2. If you have any technical problem, you may join the QQ discussion group: 297253733, link: click [here](https://jq.qq.com/?_wv=1027&k=5yCRuXL)
-
-3. Want to learn OpenWrt development but don't know how? Can't motivate yourself for self-learning? Not enough fundamental knowledge? Learn OpenWrt development with Mr. Zuo through his Beginner OpenWrt Training Course. Click [here](http://forgotfun.org/2018/04/openwrt-training-2018.html) to register.
-
-## Router Recommendation
-Not Sponsored: If you are finding a low power consumption, small and performance promising x86/x64 router, I personally recommend the 
-EZPROv1 Alumium Edition (N3710 4000M): [Details](https://item.taobao.com/item.htm?spm=a230r.1.14.20.144c763fRkK0VZ&id=561126544764)
-
-![xm1](doc/xm5.jpg)
-![xm2](doc/xm6.jpg)
-
-## Donation
-
-If this project does help you, please consider donating to support the development of this project.
-
-### Alipay
-
-![alipay](doc/alipay_donate.jpg)
-
-### WeChat
-
-![wechat](doc/wechat_donate.jpg)
-
-## Note: Addition Lean's private package source code in `./package/lean` directory. Use it under GPL v3.
-
-## GPLv3 is compatible with more licenses than GPLv2: it allows you to make combinations with code that has specific kinds of additional requirements that are not in GPLv3 itself. Section 7 has more information about this, including the list of additional requirements that are permitted.
+## Acknowledgements
+Thanks to Lean for [LEDE](https://github.com/coolsnowwolf/lede).
+Thanks to KFERMercer for [OpenWrt-CI](https://github.com/KFERMercer/OpenWrt-CI).
+Translated with www.DeepL.com/Translator (free version).
