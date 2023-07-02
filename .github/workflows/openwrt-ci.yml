@@ -136,8 +136,6 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-ntpc-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ramfree-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-statistics-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-unblockmusic-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-wifischedule-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
           CONFIG_PACKAGE_luci-proto-wireguard=y
