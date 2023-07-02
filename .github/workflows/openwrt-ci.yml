@@ -55,6 +55,7 @@ jobs:
         run: |
           git clone https://github.com/vernesong/OpenClash.git
           cp -r ./OpenClash/luci-app-openclash ./package
+          
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
