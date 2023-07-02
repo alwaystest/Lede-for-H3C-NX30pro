@@ -28,14 +28,13 @@ List of compiled plug-ins within the firmware:
 |luci-app-pushbot|All-purpose push|
 |luci-app-ramfree|memory release|
 |luci-app-statistics|statistics tools|
-|luci-app-unblockmusic|unblock Netflix (removed from subsequent firmware)|
+|luci-app-unblockneteasemusic|unblock Netease Music|
 |luci-app-wifischedule|Wifi scheduled tasks|
 |luci-app-wireguard|Wireguard|
 |luci-app-zerotier|Zerotier penetration tool|
 
 There are also plugins for KMS Server, Turbo ACC, Internet Time Control, Dynamic DNS, WiFi Wakeup, UPNP, etc. that are compiled into the firmware by default.  
 
-Unlock Netflix doesn't work very well, so it's not built in. You can use `opkg` to install it again if you need it.
 
 ## Other usage
 This library can be used to compile firmware for other routers.  

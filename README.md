@@ -28,14 +28,14 @@
 |luci-app-pushbot|全能推送|
 |luci-app-ramfree|内存释放|
 |luci-app-statistics|统计工具|
-|luci-app-unblockmusic|解锁网易云 (已从后续固件中删除)|
+|luci-app-unblockneteasemusic|解锁网易云 (更换非 L 大自带)|
 |luci-app-wifischedule|Wifi 计划任务|
 |luci-app-wireguard|Wireguard|
 |luci-app-zerotier|Zerotier 穿透工具|
 
 此外还有 KMS 服务器、Turbo ACC、上网时间控制、动态 DNS、WiFi 唤醒、UPNP 等默认编译进固件的插件。  
 
-解锁网易云效果不太好，就没有内置，需要的话可以用 `opkg` 再安装。
+L 大原版自带的解锁网易云效果不太好，就更换成了[另外一个](https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic)。
 
 ## 其他用法
 本库可以用于编译其他路由器的固件。  
@@ -85,5 +85,6 @@ make defconfig
 5.Commit 修改，Action 将自动开始编译，之后可在 Release 中找到相应固件。
 
 ## 致谢
-感谢 Lean 的  [LEDE](https://github.com/coolsnowwolf/lede)。
-感谢 KFERMercer 的 [OpenWrt-CI](https://github.com/KFERMercer/OpenWrt-CI)。
+感谢 Lean 的  [LEDE](https://github.com/coolsnowwolf/lede)。  
+
+感谢 KFERMercer 的 [OpenWrt-CI](https://github.com/KFERMercer/OpenWrt-CI)。  
