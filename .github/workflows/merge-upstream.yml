@@ -52,6 +52,7 @@ jobs:
         fi
 
     - name: Push Commits
-      env:
-        DOWNSTREAM_BRANCH: master
-      run: git push origin $DOWNSTREAM_BRANCH
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.ACCOUNT_TOKEN }}
+        branch: ${{ github.ref }}
