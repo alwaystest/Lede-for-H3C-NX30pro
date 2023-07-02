@@ -79,9 +79,7 @@ jobs:
           CONFIG_BATMAN_ADV_BLA=y
           CONFIG_BATMAN_ADV_DAT=y
           CONFIG_BATMAN_ADV_MCAST=y
-          CONFIG_PACKAGE_UnblockNeteaseMusic-Go=y
           CONFIG_PACKAGE_adbyby=y
-          CONFIG_PACKAGE_attendedsysupgrade-common=y
           CONFIG_PACKAGE_batctl-default=y
           CONFIG_PACKAGE_cgi-io=y
           CONFIG_PACKAGE_collectd=y
@@ -126,7 +124,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-pushbot=y
           CONFIG_PACKAGE_luci-app-ramfree=y
           CONFIG_PACKAGE_luci-app-statistics=y
-          CONFIG_PACKAGE_luci-app-unblockmusic=y
           CONFIG_PACKAGE_luci-app-wifischedule=y
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-zerotier=y
