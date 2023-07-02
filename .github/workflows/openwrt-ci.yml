@@ -53,9 +53,10 @@ jobs:
 
       - name: Get OpenClash
         run: |
-          git clone https://github.com/vernesong/OpenClash.git
-          cp -r ./OpenClash/luci-app-openclash ./package
-          
+          wget https://github.com/vernesong/OpenClash/archive/refs/heads/master.zip
+          unzip master.zip 
+          cp -r ./OpenClash-master/luci-app-openclash ./package
+
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
