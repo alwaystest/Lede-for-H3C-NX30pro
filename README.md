@@ -54,7 +54,7 @@ make defconfig
 
 3.Fork 本仓库；
 
-4.将`.github/workflows/openwrt-ci.yml`文件第 74 行`cat >> .config <<EOF`与第 152 行`EOF`之间内容修改为第 2 步中`diff.config`文件内容，**注意缩进**。
+4.将`.github/workflows/openwrt-ci.yml`文件中`cat >> .config <<EOF`与`EOF`之间内容修改为第 2 步中`diff.config`文件内容，**注意缩进**。
 
 ```yml
       - name: Generate configuration file

@@ -54,7 +54,7 @@ Locate the ``diff.config`` file in the folder and copy the entire contents;
 
 3. Fork this repository;
 
-4. Modify the contents between `.github/workflows/openwrt-ci.yml` file line 74 `cat >> .config <<EOF` and line 152 `EOF` to the contents of `diff.config` file in step 2, **Note the indentation**.
+4. Modify the contents between  `cat >> .config <<EOF` and `EOF` in `.github/workflows/openwrt-ci.yml` file to the contents of `diff.config` file in step 2, **Note the indentation**.
 
 ```yml
       - name: Generate configuration file
