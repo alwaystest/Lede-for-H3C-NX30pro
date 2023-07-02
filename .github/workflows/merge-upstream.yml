@@ -21,4 +21,4 @@ jobs:
           upstream: coolsnowwolf/lede      # set the upstream repo
           upstream-branch: master   # set the upstream branch to merge from
           branch: master          # set the branch to merge to
-          token: ${{ secrets.ACCOUNT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
