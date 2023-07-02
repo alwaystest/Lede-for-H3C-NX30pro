@@ -58,12 +58,6 @@ jobs:
           cp -r ./OpenClash-master/luci-app-openclash ./package
           echo done
 
-      - name: Get UnblockNetEaseMusic
-        run: |
-          git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
-          cp -r ./luci-app-unblockneteasemusic ./package
-          echo done
-
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -130,7 +124,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-pushbot=y
           CONFIG_PACKAGE_luci-app-ramfree=y
           CONFIG_PACKAGE_luci-app-statistics=y
-          CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
           CONFIG_PACKAGE_luci-app-wifischedule=y
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-zerotier=y
