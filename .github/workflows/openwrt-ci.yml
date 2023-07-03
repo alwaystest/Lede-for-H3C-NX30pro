@@ -61,6 +61,13 @@ jobs:
           cp -r ./OpenClash-master/luci-app-openclash ./package
           echo done
 
+      - name: Get Theme Edge
+        run: |
+          wget https://github.com/kiddin9/luci-theme-edge/archive/refs/heads/master.zip
+          unzip master.zip 
+          cp -r ./luci-theme-edge ./package
+          echo done
+
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -145,6 +152,7 @@ jobs:
           CONFIG_PACKAGE_luci-ssl-openssl=y
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-design=y
+          CONFIG_PACKAGE_luci-theme-edge=y
           CONFIG_PACKAGE_ntpclient=y
           CONFIG_PACKAGE_rpcd-mod-rpcsys=y
           CONFIG_PACKAGE_rrdtool1=y
@@ -212,5 +220,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/firmware/*
           tag: ${{ env.NOW }}
-          body: “本 Release 由工作流自动编译，更新内容请见 Commit 或上游库。”
+          body: "本 Release 由 Action 自动发布，更新内容见 [History](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/commits/master) 或上游库。 <br> Released by action bot,check [History](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/commits/master) or upstream repo for more info." 
           file_glob: true

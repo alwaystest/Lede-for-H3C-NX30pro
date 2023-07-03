@@ -9,6 +9,9 @@
 This is a library to compile firmware for H3C Magic NX30Pro.  
 It is automatically compared with the upstream [LEDE](https://github.com/coolsnowwolf/lede) library at 19:30 every day, and then the new content is automatically pulled and compiled for release via Github CI.
 
+
+## Language（语言）
+**English** / [简体中文](README.md)
 ## Download
 See [CI](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/actions/workflows/openwrt-ci.yml) or [Release](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/releases) page.
 
@@ -28,7 +31,7 @@ List of compiled plug-ins within the firmware:
 |luci-app-pushbot|All-purpose push|
 |luci-app-ramfree|memory release|
 |luci-app-statistics|statistics tools|
-|luci-app-unblockneteasemusic|unblock Netease Music|
+|luci-app-unblockneteasemusic|unblock Netease Music（abandoned）|
 |luci-app-wifischedule|Wifi scheduled tasks|
 |luci-app-wireguard|Wireguard|
 |luci-app-zerotier|Zerotier penetration tool|

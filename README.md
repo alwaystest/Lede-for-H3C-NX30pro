@@ -9,6 +9,9 @@
 这是一个为 H3C Magic NX30Pro 编译固件的库。  
 于每天 19:30 自动与上游 [LEDE](https://github.com/coolsnowwolf/lede) 库进行对比，后通过 Github CI 自动拉取新内容并编译发布。
 
+## 语言（Language）
+**中文** / [English](README_EN.md)
+
 ## 下载
 见 [CI](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/actions/workflows/openwrt-ci.yml) 或 [Release](https://github.com/Zachery-Liu/Lede-for-H3C-NX30pro/releases) 页面。
 
