@@ -29,6 +29,9 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
+    
+      - name: set env
+        run: echo "::set-env name=NOW::$(date +'%Y-%m-%dT%H:%M:%S')"
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -208,6 +211,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/firmware/*
-          tag: ${{ github.ref }}
+          tag: ${{ env.NOW }}
           body: “本 Release 由工作流自动编译，更新内容请见 Commit 或上游库。”
           file_glob: true
