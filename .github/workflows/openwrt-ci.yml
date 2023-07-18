@@ -62,12 +62,6 @@ jobs:
           cp -r ./OpenClash-master/luci-app-openclash ./package
           echo done
 
-      - name: Get Theme Edge
-        run: |
-          git clone https://github.com/kiddin9/luci-theme-edge.git
-          cp -r ./luci-theme-edge ./package
-          echo done
-
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -152,7 +146,6 @@ jobs:
           CONFIG_PACKAGE_luci-ssl-openssl=y
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-design=y
-          CONFIG_PACKAGE_luci-theme-edge=y
           CONFIG_PACKAGE_ntpclient=y
           CONFIG_PACKAGE_rpcd-mod-rpcsys=y
           CONFIG_PACKAGE_rrdtool1=y
