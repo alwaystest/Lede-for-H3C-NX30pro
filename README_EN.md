@@ -1,6 +1,6 @@
 # Welcome to Lean's git source of OpenWrt and packages
 
-I18N: [English](README_EN.md) | [简体中文](README.md)
+I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_JA.md)
 
 ## Official Channels
 <!--
@@ -188,7 +188,7 @@ source ~/.bashrc
 由于默认情况下，装载到 WSL 发行版的 NTFS 格式的驱动器将不区分大小写，因此大概率在 WSL/WSL2 的编译检查中会返回以下错误：
 
 ```txt
-Build dependency: OpenWrt can only be built on a case-sensitive filesystem 
+Build dependency: OpenWrt can only be built on a case-sensitive filesystem
 ```
 
 一个比较简洁的解决方法是，在 `git clone` 前先创建 Repository 目录，并为其启用大小写敏感：
@@ -206,7 +206,7 @@ PS > git clone git@github.com:coolsnowwolf/lede.git <your_local_lede_path>
 NTFS-formatted drives mounted to a WSL distribution will be case-insensitive by default. This will cause the following error when compiling in WSL/WSL2:
 
 ```txt
-Build dependency: OpenWrt can only be built on a case-sensitive filesystem 
+Build dependency: OpenWrt can only be built on a case-sensitive filesystem
 ```
 
 A simple solution is to create a case-sensitive directory for the repository before `git clone`:
@@ -323,7 +323,7 @@ Yingku R2 - N95/N300 Mini Four-Network HomeLab Server
 -->
 If this project did helped you, please consider donating to support the development of this project.
 
-<div align="left">    
+<div align="left">
   <img src="./doc/star.png" width = "400" alt="" align=center />
 </div>
 <br>
