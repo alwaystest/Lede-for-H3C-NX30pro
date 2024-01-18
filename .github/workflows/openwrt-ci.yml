@@ -10,6 +10,7 @@
 name: OpenWrt-CI
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: [Merge-upstream]
     types:
